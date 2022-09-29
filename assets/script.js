@@ -19,8 +19,8 @@ function generatePassword() {
     console.log(inputLength);
   // Input validation begin - This is working
       if ((inputLength >= 8) && (inputLength <= 128)) {
-      var addChar = confirm("Please select OK to add special characters to your password.");
-        console.log(addChar);
+      var addSpChar = confirm("Please select OK to add special characters to your password.");
+        console.log(addSpChar);
       var addNum = confirm("Please select OK to add numbers to your password.");
         console.log(addNum);
     } else {
@@ -31,7 +31,7 @@ function generatePassword() {
         generatePassword();
       }
     }
-      if (addChar || addNum) {
+      if (addSpChar || addNum) {
       var addUpp = confirm("Please select OK to add Uppercase letters to your password.");
         console.log(addUpp);
       var addLow = confirm("Please select OK to add Lowercase letters to your password.");
@@ -45,6 +45,49 @@ function generatePassword() {
       }
     }
   // Input validation end - This is working
+  var pwdOutput = "";
+  var stringContainer = {
+    upABC: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    loABC: "abcdefghijklmnopqrstuvwxyz",
+    nums: "0123456789",
+    spChar: " !#$%&'()*+,-./:;<=>?@[]^_`{|}~",
+    emptyString: "",
+  };
+  if (addUpp && addSpChar && !addLow && !addNum) {
+    while (pwdOutput.length <= 256) {
+      stringContainer.emptyString = stringContainer.upABC.concat(stringContainer.spChar);
+      console.log(stringContainer.emptyString);
+      pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
+    }
+    console.log(pwdOutput.slice(0, inputLength));
+  } else if (addUpp && addSpChar && addNum && !addLow) {
+    while (pwdOutput.length <= 256) {
+      stringContainer.emptyString = stringContainer.upABC.concat(stringContainer.spChar, stringContainer.nums);
+      console.log(stringContainer.emptyString);
+      pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
+    } 
+      console.log(pwdOutput.slice(0, inputLength));
+  } else if (addUpp && addSpChar && !addNum && addLow) {
+    while (pwdOutput.length <= 256) {
+      stringContainer.emptyString = stringContainer.upABC.concat(stringContainer.spChar, stringContainer.nums, stringContainer.loABC);
+      console.log(stringContainer.emptyString);
+      pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
+    } 
+    console.log(pwdOutput.slice(0, inputLength));
+  } else if (addUpp && !addSpChar && addNum && !addLow) {
+    while (pwdOutput.length <= 256) {
+      stringContainer.emptyString = stringContainer.upABC.concat(stringContainer.nums);
+      console.log(stringContainer.emptyString);
+      pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
+    } 
+    console.log(pwdOutput.slice(0, inputLength));
+  }
+
+  // while (pwdOutput.length <= 256) {
+  //   pwdOutput += stringContainer.upABC[Math.floor(Math.random() * stringContainer.upABC.length)];
+  // }
+  // console.log(pwdOutput.slice(0, inputLength));
+
 
 // var emptyString = "";
 // var upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
