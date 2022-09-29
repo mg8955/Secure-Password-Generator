@@ -58,57 +58,55 @@ function generatePassword() {
       pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
     }
     return pwdOutput;
-  } else if (addUpp && addSpChar && addNum && !addLow) {
+    } else if (addUpp && addSpChar && addNum && !addLow) {
     while (pwdOutput.length < inputLength) {
       stringContainer.emptyString = stringContainer.upABC.concat(stringContainer.nums, stringContainer.spChar, stringContainer.nums);
       pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
     } 
       return pwdOutput;
-  } else if (addUpp && addSpChar && !addNum && addLow) {
+    } else if (addUpp && addSpChar && !addNum && addLow) {
     while (pwdOutput.length < inputLength) {
-      stringContainer.emptyString = stringContainer.upABC.concat(stringContainer.spChar, stringContainer.nums, stringContainer.loABC);
+      stringContainer.emptyString = stringContainer.upABC.concat(stringContainer.spChar, stringContainer.loABC);
       pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
     } 
     return pwdOutput;
-  } else if (addUpp && !addSpChar && addNum && !addLow) {
+    } else if (addUpp && !addSpChar && addNum && !addLow) {
     while (pwdOutput.length < inputLength) {
       stringContainer.emptyString = stringContainer.upABC.concat(stringContainer.nums, stringContainer.nums);
       pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
     } 
     return pwdOutput;
-  } else if (addUpp && addNum && !addSpChar && addLow) {
+    } else if (addUpp && addNum && !addSpChar && addLow) {
     while (pwdOutput.length < inputLength) {
       stringContainer.emptyString = stringContainer.upABC.concat(stringContainer.nums, stringContainer.loABC, stringContainer.nums);
       pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
     } 
     return pwdOutput;
-  } else if (addUpp && addNum && addSpChar && addLow) {
+    } else if (addUpp && addNum && addSpChar && addLow) {
     while (pwdOutput.length < inputLength) {
       stringContainer.emptyString = stringContainer.upABC.concat(stringContainer.nums, stringContainer.loABC, stringContainer.spChar, stringContainer.nums);
       pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
     } 
     return pwdOutput;
-  } else if (!addUpp && addNum && !addSpChar && addLow){
+    } else if (!addUpp && addNum && !addSpChar && addLow){
     while (pwdOutput.length < inputLength) {
       stringContainer.emptyString = stringContainer.loABC.concat(stringContainer.nums, stringContainer.nums);
       pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
     } 
     return pwdOutput;
-  } else if (!addUpp && !addNum && addSpChar && addLow){
+    } else if (!addUpp && !addNum && addSpChar && addLow){
     while (pwdOutput.length < inputLength) {
       stringContainer.emptyString = stringContainer.loABC.concat(stringContainer.spChar);
       pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
     } 
     return pwdOutput;
-  } else {
+    } else {
     while (pwdOutput.length < inputLength) {
       stringContainer.emptyString = stringContainer.loABC.concat(stringContainer.nums, stringContainer.spChar);
       pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
     } 
     return pwdOutput;
-  }} 
-
-// generatePassword();
+    }} 
 
   // Pseudocode
     // Gather user input on password requirements
