@@ -18,9 +18,9 @@ function generatePassword() {
   var inputLength = Number(prompt("Please enter your desired password length between 8-128 characters."));
       if ((inputLength >= 8) && (inputLength <= 128)) {
       } else {
-      var quit = confirm("Invalid length. Please select OK to try again");
+      var quit = confirm("Invalid length. Please select OK to try again.");
       if (quit === false) {
-        return;
+        return "Your Secure Password";
       } else {
         generatePassword();
       }}
@@ -28,9 +28,9 @@ function generatePassword() {
       var addNum = confirm("Please select OK to add numbers to your password.");
       if (addSpChar || addNum) {
       } else {
-      var quit = confirm("Please click OK to retry and add either Special Characters or Numbers to your password.");
+      quit = confirm("Please click OK to retry and add either Special Characters or Numbers to your password.");
         if (quit === false) {
-        return;
+        return "Your Secure Password";
       } else {
         generatePassword();
       }}
@@ -38,9 +38,9 @@ function generatePassword() {
       var addLow = confirm("Please select OK to add Lowercase letters to your password.");
       if (addUpp || addLow) {
       } else {
-      var quit = confirm("Please click OK to retry and add either Upper Case or Lower Case Letters");
+      quit = confirm("Please click OK to retry and add either Upper Case or Lower Case Letters.");
       if (quit === false) {
-          return;
+          return "Your Secure Password";
       } else {
         generatePassword();
       }}
@@ -84,7 +84,7 @@ function generatePassword() {
     return pwdOutput;
     } else if (addUpp && addNum && addSpChar && addLow) {
     while (pwdOutput.length < inputLength) {
-      stringContainer.emptyString = stringContainer.upABC.concat(stringContainer.nums, stringContainer.loABC, stringContainer.spChar, stringContainer.nums);
+      stringContainer.emptyString = stringContainer.upABC.concat(stringContainer.nums, stringContainer.loABC, stringContainer.nums, stringContainer.spChar);
       pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
     } 
     return pwdOutput;
@@ -100,7 +100,7 @@ function generatePassword() {
       pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
     } 
     return pwdOutput;
-    } else {
+    } else if (!addUpp && addNum && addSpChar && addLow){
     while (pwdOutput.length < inputLength) {
       stringContainer.emptyString = stringContainer.loABC.concat(stringContainer.nums, stringContainer.spChar);
       pwdOutput += stringContainer.emptyString[Math.floor(Math.random() * stringContainer.emptyString.length)];
